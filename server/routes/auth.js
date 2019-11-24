@@ -8,10 +8,6 @@ const config = require('config');
 const User = require('../models/User');
 
 
-// @route    POST api/auth
-// @desc     Authenticate user & get token
-// @access   Public
-
 router.post('/add', async(req, res) => {
   
 try{
@@ -61,12 +57,12 @@ router.post(
         { expiresIn: 360000 },
         (err, token) => {
           if (err) throw err;
-          res.json({ token })
+          res.send(token)
         }
       );
     } catch (err) {
-      console.error(err.message);
-      res.status(500).send('Server error');
+      console.error(err.message)
+      res.status(500).send('Server error')
     }
   }
 );

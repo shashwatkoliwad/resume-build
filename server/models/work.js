@@ -33,7 +33,6 @@ const workSchema = new mongoose.Schema({
 
 })
 
-
 const projectSchema = new mongoose.Schema({
     name: {
         type: String,
