@@ -7,6 +7,7 @@ const app = express()
 
 const authRoute = require('./routes/auth')
 const profileRoute = require('./routes/profile')
+const workRoute = require('./routes/work')
 
 connectDB()
 
@@ -41,7 +42,7 @@ app.use(async (req, res, next) => {
       req.user = {
         ...req.user,
         name: 'Shashwat',
-        email: 'koliwad96@gmail.com'
+        email: "test@gmail.com"
       }
     }
     res.append('username', req.user.email)

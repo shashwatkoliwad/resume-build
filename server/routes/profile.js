@@ -35,7 +35,7 @@ router.post('/update', async(req, res) => {
             return res.json(profile)
         }
         console.log('come one')
-        profileFields.user = "koliwad96@gmail.com"
+    
         profile = new Profile(profileFields)
         await profile.save()
         res.json(profile)
