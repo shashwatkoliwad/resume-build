@@ -53,6 +53,7 @@ app.use(async (req, res, next) => {
 //routes
 app.use('/user', authRoute)
 app.use('/profile', profileRoute)
+app.use('/work', workRoute)
 
 const PORT = 5000
 
