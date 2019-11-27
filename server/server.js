@@ -8,6 +8,9 @@ const app = express()
 const authRoute = require('./routes/auth')
 const profileRoute = require('./routes/profile')
 const workRoute = require('./routes/work')
+const educationRoute = require('./routes/education')
+const certificateRoute = require('./routes/certificate')
+const honorRoute = require('./routes/honor')
 
 connectDB()
 
@@ -42,6 +45,7 @@ app.use(async (req, res, next) => {
       req.user = {
         ...req.user,
         name: 'Shashwat',
+        id:"5ddcc2de9a331fa68abab706",
         email: "test@gmail.com"
       }
     }
@@ -55,6 +59,9 @@ app.use(async (req, res, next) => {
 app.use('/user', authRoute)
 app.use('/profile', profileRoute)
 app.use('/work', workRoute)
+app.use('/education', educationRoute)
+app.use('/honor', honorRoute)
+app.use('/certificate', certificateRoute)
 
 const PORT = 5000
 

@@ -27,6 +27,9 @@ const educationSchema = new mongoose.Schema({
     },
     location: {
         type: String
+    },
+    description: {
+        type: String
     }
 
 })

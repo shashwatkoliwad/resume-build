@@ -1,21 +1,6 @@
 const mongoose = require('mongoose');
 //const workSchema = require('./work')
 
-const honorSchema = new mongoose.Schema({
-    name: String,
-    eventName: String,
-    eventDate: Date,
-    description: String
-})
-
-const certificateSchema = new mongoose.Schema({
-    title: String,
-    startDate: Date,
-    endDate: Date,
-    instituteName: String,
-    location: String,
-    description: String
-})
 
 const profileSchema = new mongoose.Schema({
     user: {
@@ -32,9 +17,7 @@ const profileSchema = new mongoose.Schema({
     profileOverview: {
         type: String,
         required: true
-    },
-    certifications: [certificateSchema],
-    honors: [honorSchema]
+    }
 })
 
 
