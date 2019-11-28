@@ -60,6 +60,4 @@ const workSchema = new mongoose.Schema({
 
 })
 
-
-
 module.exports = Work = mongoose.model('work', workSchema)

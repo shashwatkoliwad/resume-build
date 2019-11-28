@@ -31,6 +31,27 @@ router.post('/update', async(req, res) => {
     }
  })
 
+ // update a doc
+router.get('/edit', async(req, res) => {
+    let profileFields = req.body
+    try {
+      let profile = await Profile.findById({ id: req.body.id })
+      if (profile) {
+        let updatedProfile = await Profile.findOneAndUpdate(
+          {id:req.body.id},
+          {$set: profileFields},
+          {new: true}
+        )
+          res.json(updatedProfile)
+  
+      }
+      res.send(profile)
+    } catch (err) {
+      console.error(err.message)
+      res.send('Sever error')
+    }
+  })
+
 
 
 

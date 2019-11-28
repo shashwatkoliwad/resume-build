@@ -31,18 +31,26 @@ router.post('/add', async(req, res) => {
      }
  })
 
-//  router.get('/edit', async(req, res) => {
-//      try{
-//         let education = Education.find({user: req.user.id})
-//         if (education) {
-//            let editEducation = await Education.findById({ _id: req.body.id })
-//             res.send(editEducation)
-//         }
-//      } catch (err) {
-//         console.error(err.message)
-//         res.send('Sever error')
-//     }
-//  })
+// update a doc
+router.get('/edit', async(req, res) => {
+    let educationFields = req.body
+    try {
+      let education = await Education.findById({ id: req.body.id })
+      if (education) {
+        let updatedEducation = await Education.findOneAndUpdate(
+          {id:req.body.id},
+          {$set: educationFields},
+          {new: true}
+        )
+          res.json(updatedEducation)
+  
+      }
+      res.send(education)
+    } catch (err) {
+      console.error(err.message)
+      res.send('Sever error')
+    }
+  })
 
 
  module.exports = router
